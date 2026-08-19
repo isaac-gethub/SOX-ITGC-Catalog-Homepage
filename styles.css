@@ -1,0 +1,157 @@
+/* TIB Systems — Marketing Site Design System
+   Derived from the live course-app brand (case-file / evidence-log aesthetic),
+   extended for a homepage/sales context. */
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --ink:#12213A; --ink-2:#1B3358; --ink-3:#0E1A2E;
+  --paper:#EDE7D8; --paper-2:#F7F4EA; --white:#FFFFFF;
+  --amber:#C0812A; --amber-deep:#8F5D18;
+  --teal:#1F6B67; --brick:#8A3226;
+  --line:#C9BFA3; --text:#2B3548; --text-soft:#4A5872; --muted:#6C7A94;
+  --shadow: 0 10px 30px rgba(18,33,58,0.14);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--paper-2); color:var(--text);
+  font-family:'Inter',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ font-family:'Spectral',serif; font-weight:700; color:var(--ink); margin:0; }
+a{ color:inherit; text-decoration:none; }
+.mono{ font-family:'JetBrains Mono',monospace; }
+.wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:2.2px; text-transform:uppercase; color:var(--amber); font-weight:600; }
+.eyebrow.on-dark{ color:var(--amber); }
+
+/* ===== NAV ===== */
+header.site-nav{ background:var(--ink); border-bottom:1px solid rgba(255,255,255,0.08); position:sticky; top:0; z-index:100; }
+header.site-nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+.brand{ font-family:'Spectral',serif; font-weight:700; font-style:italic; color:var(--white); font-size:20px; letter-spacing:0.2px; }
+.brand span{ color:var(--amber); }
+nav.links{ display:flex; gap:30px; align-items:center; }
+nav.links a{ color:#C7D2E6; font-size:14px; font-weight:500; transition:color .15s; }
+nav.links a:hover{ color:var(--amber); }
+.btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border-radius:3px; font-weight:600; font-size:14.5px; cursor:pointer; border:1px solid transparent; transition:all .15s; }
+.btn-amber{ background:var(--amber); color:var(--ink); }
+.btn-amber:hover{ background:#D89440; }
+.btn-outline{ background:transparent; border-color:rgba(255,255,255,0.3); color:var(--white); }
+.btn-outline:hover{ border-color:var(--amber); color:var(--amber); }
+.btn-ink{ background:var(--ink); color:var(--white); }
+.btn-ink:hover{ background:var(--ink-2); }
+.btn-teal{ background:var(--teal); color:var(--white); }
+.btn-teal:hover{ background:#256F6A; }
+.btn-lg{ padding:15px 30px; font-size:16px; }
+
+/* ===== HERO ===== */
+.hero{ background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); color:var(--white); padding:96px 0 80px; position:relative; overflow:hidden; }
+.hero::after{ content:''; position:absolute; right:-120px; top:-120px; width:480px; height:480px; border-radius:50%;
+  background:radial-gradient(circle, rgba(192,129,42,0.14) 0%, transparent 70%); }
+.hero .wrap{ position:relative; z-index:1; }
+.hero h1{ color:var(--white); font-size:52px; line-height:1.08; max-width:780px; margin:18px 0 22px; }
+.hero h1 em{ font-style:italic; color:var(--amber); }
+.hero p.lede{ font-size:19px; color:#C7D2E6; max-width:640px; line-height:1.6; margin:0 0 34px; }
+.hero .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+
+/* ===== SECTIONS ===== */
+section{ padding:76px 0; }
+section.on-paper{ background:var(--paper); }
+.section-head{ max-width:640px; margin:0 0 44px; }
+.section-head h2{ font-size:34px; margin:10px 0 14px; }
+.section-head p{ color:var(--text-soft); font-size:16.5px; }
+
+/* ===== CASE FILE CARDS (signature element) ===== */
+.file-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+.file-card{
+  background:var(--white); border:1px solid var(--line); border-radius:3px; overflow:hidden;
+  display:flex; flex-direction:column; transition:transform .18s, box-shadow .18s;
+}
+.file-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.file-card .tab{
+  background:var(--ink); color:var(--white); font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:1.4px; text-transform:uppercase; padding:9px 16px; display:flex; justify-content:space-between; align-items:center;
+}
+.file-card.premium .tab{ background:var(--brick); }
+.file-card.free .tab{ background:var(--teal); }
+.file-card .tab .num{ color:var(--amber); font-weight:700; }
+.file-card.premium .tab .num, .file-card.free .tab .num{ color:var(--white); }
+.file-card .body{ padding:22px 20px 20px; flex:1; display:flex; flex-direction:column; }
+.file-card h3{ font-size:21px; margin:0 0 4px; }
+.file-card .entity{ font-family:'Spectral',serif; font-style:italic; color:var(--amber-deep); font-size:13.5px; margin-bottom:12px; }
+.file-card .hook{ font-size:14px; color:var(--text-soft); line-height:1.55; margin-bottom:18px; flex:1; }
+.file-card .metrics{ display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); border-top:1px dashed var(--line); padding-top:14px; margin-bottom:16px; flex-wrap:wrap; }
+.file-card .metrics b{ color:var(--ink); }
+.file-card .price{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:20px; color:var(--ink); margin-bottom:14px; }
+.file-card .price .was{ font-size:13px; color:var(--muted); font-weight:400; text-decoration:line-through; margin-right:8px; }
+.file-card .open-link{ font-size:13.5px; font-weight:600; color:var(--teal); display:inline-flex; align-items:center; gap:6px; }
+.file-card .open-link:hover{ color:var(--amber-deep); }
+
+/* ===== HOW IT WORKS ===== */
+.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+.step{ background:var(--white); border:1px solid var(--line); border-radius:3px; padding:26px 24px; }
+.step .stepnum{ font-family:'JetBrains Mono',monospace; color:var(--amber); font-size:13px; font-weight:700; letter-spacing:1px; margin-bottom:10px; }
+.step h3{ font-size:19px; margin-bottom:8px; }
+.step p{ font-size:14.5px; color:var(--text-soft); }
+
+/* ===== METRICS BAR (course pages) ===== */
+.metrics-bar{ background:var(--ink); color:var(--white); }
+.metrics-bar .wrap{ display:flex; justify-content:space-between; padding:26px 28px; flex-wrap:wrap; gap:20px; }
+.metric{ text-align:left; }
+.metric .val{ font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:700; color:var(--amber); }
+.metric .lbl{ font-size:11.5px; letter-spacing:1.2px; text-transform:uppercase; color:#8FA0BE; margin-top:4px; }
+
+/* ===== CALLOUT ===== */
+.callout{ border:1px solid var(--line); border-left:5px solid var(--teal); background:var(--paper-2); padding:20px 24px; border-radius:2px; }
+.callout.brick{ border-left-color:var(--brick); }
+.callout .stamp{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:var(--teal); font-weight:700; display:block; margin-bottom:8px; }
+.callout.brick .stamp{ color:var(--brick); }
+.callout p{ margin:0; font-size:15px; color:var(--text); line-height:1.6; }
+
+/* ===== LISTS ===== */
+ul.check-list{ list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+ul.check-list li{ display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--text); line-height:1.55; }
+ul.check-list li::before{ content:'\2713'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:2px; }
+ul.doc-list{ list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+ul.doc-list li{ display:flex; gap:12px; align-items:baseline; font-size:14.5px; padding:12px 16px; background:var(--white); border:1px solid var(--line); border-radius:2px; }
+ul.doc-list li .icon{ font-family:'JetBrains Mono',monospace; color:var(--amber-deep); font-weight:700; font-size:12px; }
+
+/* ===== PARTS / MODULE MAP ===== */
+.part-row{ display:flex; gap:16px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--line); }
+.part-row:last-child{ border-bottom:none; }
+.part-row .roman{ font-family:'Spectral',serif; font-style:italic; color:var(--amber); font-size:20px; min-width:36px; }
+.part-row .ptitle{ font-size:15px; color:var(--text); font-weight:500; }
+
+/* ===== CTA FOOTER ===== */
+.cta-footer{ background:var(--ink-3); color:var(--white); text-align:center; padding:70px 0; }
+.cta-footer h2{ color:var(--white); font-size:32px; margin-bottom:14px; }
+.cta-footer p{ color:#B9C4D8; font-size:16px; margin-bottom:30px; }
+
+/* ===== SITE FOOTER ===== */
+footer.site-footer{ background:var(--ink-3); border-top:1px solid rgba(255,255,255,0.08); padding:36px 0; }
+footer.site-footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+footer.site-footer .fmark{ font-family:'Spectral',serif; font-style:italic; color:#8FA0BE; font-size:14px; }
+footer.site-footer .flinks{ display:flex; gap:22px; font-size:13px; color:#6C7C9C; }
+
+/* ===== VIDEO PLACEHOLDER (free course) ===== */
+.video-frame{ background:var(--ink); border-radius:4px; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); }
+.video-frame .playbtn{ width:78px; height:78px; border-radius:50%; background:var(--amber); display:flex; align-items:center; justify-content:center; font-size:26px; color:var(--ink); cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.video-frame .caption{ position:absolute; bottom:18px; left:18px; right:18px; color:#8FA0BE; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:1px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .file-grid{ grid-template-columns:repeat(2,1fr); }
+  .steps{ grid-template-columns:1fr; }
+  .hero h1{ font-size:38px; }
+  nav.links{ display:none; }
+}
+@media (max-width: 600px){
+  .file-grid{ grid-template-columns:1fr; }
+  .metrics-bar .wrap{ justify-content:flex-start; }
+  .hero{ padding:64px 0 56px; }
+  .hero h1{ font-size:30px; }
+}
+
+/* ===== ACCESSIBILITY ===== */
+a:focus-visible, button:focus-visible{ outline:2px solid var(--amber); outline-offset:2px; }
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
